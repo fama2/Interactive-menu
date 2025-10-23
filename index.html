@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú Digital</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Bebas Neue', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a;
+            color: #fff;
+        }
+        header {
+            background: linear-gradient(45deg, #ff00ff, #00ffff);
+            text-align: center;
+            padding: 20px;
+            box-shadow: 0 0 10px #ff00ff;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2em;
+            text-shadow: 2px 2px #000;
+        }
+        .menu-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 10px;
+        }
+        .category {
+            background-color: #2c2c2c;
+            border: 2px solid #ff00ff;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+        .category h2 {
+            background: linear-gradient(45deg, #00ffff, #ff00ff);
+            color: #fff;
+            padding: 10px;
+            margin: 0;
+            border-radius: 8px 8px 0 0;
+            cursor: pointer;
+            font-size: 1.2em;
+            text-shadow: 1px 1px #000;
+        }
+        .category table {
+            width: 100%;
+            border-collapse: collapse;
+            display: none;
+        }
+        .category.active table {
+            display: table;
+        }
+        .category table td {
+            padding: 10px;
+            border-bottom: 1px solid #444;
+            vertical-align: middle;
+            font-family: Arial, sans-serif;
+            font-size: 0.9em;
+        }
+        .category table tr:last-child td {
+            border-bottom: none;
+        }
+        .item-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 4px;
+        }
+        .item-name {
+            font-weight: bold;
+        }
+        .item-trago, .item-botella {
+            text-align: center;
+            font-size: 0.8em;
+            color: #00ffff;
+            vertical-align: bottom;
+        }
+        .picadera-table td {
+            padding: 10px;
+            border-bottom: 1px solid #444;
+            vertical-align: middle;
+        }
+        .picadera-table tr:last-child td {
+            border-bottom: none;
+        }
+        @media (max-width: 600px) {
+            .menu-container {
+                margin: 10px;
+            }
+            header h1 {
+                font-size: 1.5em;
+            }
+            .category h2 {
+                font-size: 1em;
+            }
+            .category table td {
+                font-size: 0.8em;
+                padding: 8px;
+            }
+            .item-img {
+                width: 40px;
+                height: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Menú Digital</h1>
+    </header>
+    <div class="menu-container">
+        <div class="category">
+            <h2 onclick="toggleCategory(this)">Cervezas</h2>
+            <table>
+                <tr>
+                    <td></td>
+                    <td class="item-name">Blue Moon</td>
+                    <td class="item-trago">400 rd.</td>
+                    <td class="item-botella">Botella 16 onz.</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="item-name">Corona</td>
+                    <td class="item-trago">350 rd.</td>
+                    <td class="item-botella">Botella 16 onz.</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="item-name">Miller 64</td>
+                    <td class="item-trago">350 rd.</td>
+                    <td class="item-botella">Botella 16 onz.</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="item-name">Presidente Light</td>
+                    <td class="item-trago">300 rd.</td>
+                    <td class="item-botella">Botella 16 onz.</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="item-name">Presidente Normal</td>
+                    <td class="item-trago">300 rd.</td>
+                    <td class="item-botella">Botella 16 onz.</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="item-name">Smirnoff</td>
+                    <td class="item-trago">350 rd.</td>
+                    <td class="item-botella">Botella 16 onz.</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="item-name">Stella Artois</td>
+                    <td class="item-trago">350 rd.</td>
+                    <td class="item-botella">Botella 16 onz.</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="item-name">1906</td>
+                    <td class="item-trago">450 rd.</td>
+                    <td class="item-botella">Botella 16 onz.</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="item-name">Leffe</td>
+                    <td class="item-trago">400 rd</td>
+                    <td class="item-botella">Botella 16 onz.</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="item-name">Desperado</td>
+                    <td class="item-trago">350 rd.</td>
+                    <td class="item-botella">Botella 16 onz.</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="item-name">Heineken</td>
+                    <td class="item-trago">350 rd.</td>
+                    <td class="item-botella">Botella 16 onz.</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="item-name">Modelo Rubia</td>
+                    <td class="item-trago">350 rd.</td>
+                    <td class="item-botella">Botella 16 onz.</td>
+                <tr>
+                    <td></td>
+                    <td class="item-name">Modelo Negra</td>
+                    <td class="item-trago">400 rd.</td>
+                    <td class="item-botella">Botella 16 onz.</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="item-name">Bohemia</td>
+                    <td class="item-trago">300 rd.</td>
+                    <td class="item-botella">Botella 16 onz.</td>
+                </tr>
+            </table>
+        </div>
+        <div class="category">
+            <h2 onclick="toggleCategory(this)">Cocteles</h2>
+            <table>
+                <tr>
+                    <td></td>
+                    <td class="item-name">Bob Marley</td>
+                    <td class="item-trago">Coctail</td>
+                    <td class="item-botella">400 rd.</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="item-name">Bomba Verde</td>
+                    <td class="item-trago">Coctail</td>
+                    <td class="item-botella">400 rd.</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="item-name">Bruce Lee</td>
+                    <td class="item-trago">Coctail</td>
+                    <td class="item-botella">400 rd.</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="item-name">Caciba Negra</td>
+                    <td class="item-trago">Coctail</td>
+                    <td class="item-botella">400 rd.</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="item-name">Copa de Sangría</td>
+                    <td class="item-trago">Coctail</td>
+                    <td class="item-botella">400 rd.</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="item-name">Jarra de Sangría</td>
+                    <td class="item-trago">Coctail</td>
+                    <td class="item-botella">400 rd.</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="item-name">Long Island</td>
+                    <td class="item-trago">Coctail</td>
+                    <td class="item-botella">400 rd.</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="item-name">Margaritas</td>
+                    <td class="item-trago">Coctail</td>
+                    <td class="item-botella">400 rd.</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="item-name">Mini Guinness</td>
+                    <td class="item-trago">Coctail</td>
+                    <td class="item-botella">400 rd.</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="item-name">Semen de Pitufo</td>
+                    <td class="item-trago">Coctail</td>
+                    <td class="item-botella">400 rd.</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="item-name">Tequila Sun Raise</td>
+                    <td class="item-trago">Trago</td>
+                    <td class="item-botella">Botella</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="item-name">Tu si ta Fuerte</td>
+                    <td class="item-trago">Coctail</td>
+                    <td class="item-botella">400 rd.</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="item-name">Vodka Martini</td>
+                    <td class="item-trago">Coctail</td>
+                    <td class="item-botella">400 rd.</td>
+                </tr>
+            </table>
+        </div>
+        <div class="category">
+            <h2 onclick="toggleCategory(this)">Ginebras</h2>
+            <table>
+                <tr>
+                    <td></td>
+                    <td class="item-name">Bermudez</td>
+                    <td class="item-trago">Trago 350 rd.</td>
+                    <td class="item-botella">Botella 2500 rd.</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="item-name">Bombay</td>
+                    <td class="item-trago">Trago 450 rd.</td>
+                    <td class="item-botella">Copa 650 rd.</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="item-name">Bulldog</td>
+                    <td class="item-trago">Trago 500</td>
+                    <td class="item-botella">Copa 700 rd.</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="item-name">Gibson</td>
+                    <td class="item-trago">Trago 400 rd.</td>
+                    <td class="item-botella">Copa 600 rd.</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="item-name">Hendrick's</td>
+                    <td class="item-trago">Trago 600 rd.</td>
+                    <td class="item-botella">Copa 750 rd.</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="item-name">Tanqueray</td>
+                    <td class="item-trago">Trago 400 rd.</td>
+                    <td class="item-botella">Copa 600 rd.</td>
+                </tr>
+            </table>
+        </div>
+        <div class="category">
+            <h2 onclick="toggleCategory(this)">Licores</h2>
+            <table>
+                <tr>
+                    <td></td>
+                    <td class="item-name">Amareto</td>
+                    <td class="item-trago">Trago</td>
+                    <td class="item-botella">Botella</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="item-name">Aperol</td>
+                    <td class="item-trago">Trago</td>
+                    <td class="item-botella">Botella</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="item-name">Baileys</td>
+                    <td class="item-trago">Trago</td>
+                    <td class="item-botella">Botella</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="item-name">Campari</td>
+                    <td class="item-trago">Trago</td>
+                    <td class="item-botella">Botella</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="item-name">Cointreau</td>
+                    <td class="item-trago">Trago</td>
+                    <td class="item-botella">Botella</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="item-name">Fernet</td>
+                    <td class="item-trago">Trago</td>
+                    <td class="item-botella">Botella</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="item-name">Frangelico</td>
+                    <td class="item-trago">Trago</td>
+                    <td class="item-botella">Botella</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="item-name">Jägermeister</td>
+                    <td class="item-trago">Trago</td>
+                    <td class="item-botella">Botella</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="item-name">Kahlúa</td>
+                    <td class="item-trago">Trago</td>
+                    <td class="item-botella">Botella</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="item-name">Licor de Menta</td>
+                    <td class="item-trago">Trago</td>
+                    <td class="item-botella">Botella</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="item-name">Martini</td>
+                    <td class="item-trago">Trago</td>
+                    <td class="item-botella">Botella</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="item-name">Midori</td>
+                    <td class="item-trago">Trago</td>
+                    <td class="item-botella">Botella</td>
+                </tr>
+            </table>
+        </div>
+        <div class="category">
+            <h2 onclick="toggleCategory(this)">Picaderas</h2>
+            <table class="picadera-table">
+                <tr>
+                    <td><img src="https://images.unsplash.com/photo-1603133872878-684f208fb1b1?w=50&h=50&fit=crop" alt="Picadera" class="item-img"></td>
+                    <td class="item-name">Aceitunas</td>
+                </tr>
+                <tr>
+                    <td><img src="https://images.unsplash.com/photo-1603133872878-684f208fb1b1?w=50&h=50&fit=crop" alt="Picadera" class="item-img"></td>
+                    <td class="item-name">Casabitos</td>
+                </tr>
+                <tr>
+                    <td><img src="https://images.unsplash.com/photo-1603133872878-684f208fb1b1?w=50&h=50&fit=crop" alt="Picadera" class="item-img"></td>
+                    <td class="item-name">Chorizo Extra</td>
+                </tr>
+                <tr>
+                    <td><img src="https://images.unsplash.com/photo-1603133872878-684f208fb1b1?w=50&h=50&fit=crop" alt="Picadera" class="item-img"></td>
+                    <td class="item-name">Chorizo Grande</td>
+                </tr>
+                <tr>
+                    <td><img src="https://images.unsplash.com/photo-1603133872878-684f208fb1b1?w=50&h=50&fit=crop" alt="Picadera" class="item-img"></td>
+                    <td class="item-name">Jamón Serrano</td>
+                </tr>
+                <tr>
+                    <td><img src="https://images.unsplash.com/photo-1603133872878-684f208fb1b1?w=50&h=50&fit=crop" alt="Picadera" class="item-img"></td>
+                    <td class="item-name">Jamón, Queso y Chorizo</td>
+                </tr>
+                <tr>
+                    <td><img src="https://images.unsplash.com/photo-1603133872878-684f208fb1b1?w=50&h=50&fit=crop" alt="Picadera" class="item-img"></td>
+                    <td class="item-name">Jamón Premium</td>
+                </tr>
+                <tr>
+                    <td><img src="https 林://images.unsplash.com/photo-1603133872878-684f208fb1b1?w=50&h=50&fit=crop" alt="Picadera" class="item-img"></td>
+                    <td class="item-name">Queso Brie</td>
+                </tr>
+                <tr>
+                    <td><img src="https://images.unsplash.com/photo-1603133872878-684f208fb1b1?w=50&h=50&fit=crop" alt="Picadera" class="item-img"></td>
+                    <td class="item-name">Queso Camembert</td>
+                </tr>
+                <tr>
+                    <td><img src="https://images.unsplash.com/photo-1603133872878-684f208fb1b1?w=50&h=50&fit=crop" alt="Picadera" class="item-img"></td>
+                    <td class="item-name">Queso Manchego</td>
+                </tr>
+                <tr>
+                    <td><img src="https://images.unsplash.com/photo-1603133872878-684f208fb1b1?w=50&h=50&fit=crop" alt="Picadera" class="item-img"></td>
+                    <td class="item-name">Salchicha Extra</td>
+                </tr>
+                <tr>
+                    <td><img src="https://images.unsplash.com/photo-1603133872878-684f208fb1b1?w=50&h=50&fit=crop" alt="Picadera" class="item-img"></td>
+                    <td class="item-name">Tabla Picadera</td>
+                </tr>
+            </table>
+        </div>
+        <div class="category">
+            <h2 onclick="toggleCategory(this)">Rones</h2>
+            <table>
+                <tr>
+                    <td></td>
+                    <td class="item-name">Brugal Añejo</td>
+                    <td class="item-trago">Trago</td>
+                    <td class="item-botella">Botella</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="item-name">Brugal Blanco</td>
+                    <td class="item-trago">Trago</td>
+                    <td class="item-botella">Botella</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="item-name">Brugal Extraviejo</td>
+                    <td class="item-trago">Trago</td>
+                    <td class="item-botella">Botella</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="item-name">Brugal Imperial</td>
+                    <td class="item-trago">Trago</td>
+                    <td class="item-botella">Botella</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="item-name">Brugal Leyenda</td>
+                    <td class="item-trago">Trago</td>
+                    <td class="item-botella">Botella</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="item-name">Brugal XV</td>
+                    <td class="item-trago">Trago</td>
+                    <td class="item-botella">Botella</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="item-name">Columbus</td>
+                    <td class="item-trago">Trago</td>
+                    <td class="item-botella">Botella</td>
+                </tr>
+                <tr>
+                    <td></td>
+                <td class="item-name">Dubars</td>
+                <td class="item-trago">Trago</td>
+                <td class="item-botella">Botella</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="item-name">Macorix</td>
+                <td class="item-trago">Trago</td>
+                <td class="item-botella">Botella</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="item-name">Malibu</td>
+                <td class="item-trago">Trago</td>
+                <td class="item-botella">Botella</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="item-name">Zacapa</td>
+                <td class="item-trago">Trago</td>
+                <td class="item-botella">Botella</td>
+            </tr>
+        </table>
+    </div>
+    <div class="category">
+        <h2 onclick="toggleCategory(this)">Shots</h2>
+        <table>
+            <tr>
+                <td><img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=50&h=50&fit=crop" alt="Shot" class="item-img"></td>
+                <td class="item-name">Bob Marley</td>
+                <td class="item-trago">Trago</td>
+                <td class="item-botella">Botella</td>
+            </tr>
+            <tr>
+                <td><img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=50&h=50&fit=crop" alt="Shot" class="item-img"></td>
+                <td class="item-name">Bruce Lee</td>
+                <td class="item-trago">Trago</td>
+                <td class="item-botella">Botella</td>
+            </tr>
+            <tr>
+                <td><img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=50&h=50&fit=crop" alt="Shot" class="item-img"></td>
+                <td class="item-name">Coño Morao</td>
+                <td class="item-trago">Trago</td>
+                <td class="item-botella">Botella</td>
+            </tr>
+            <tr>
+                <td><img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=50&h=50&fit=crop" alt="Shot" class="item-img"></td>
+                <td class="item-name">Cucaracha</td>
+                <td class="item-trago">Trago</td>
+                <td class="item-botella">Botella</td>
+            </tr>
+            <tr>
+                <td><img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=50&h=50&fit=crop" alt="Shot" class="item-img"></td>
+                <td class="item-name">Don Julio Blanco</td>
+                <td class="item-trago">Trago</td>
+                <td class="item-botella">Botella</td>
+            </tr>
+            <tr>
+                <td><img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=50&h=50&fit=crop" alt="Shot" class="item-img"></td>
+                <td class="item-name">Don Julio Reposado</td>
+                <td class="item-trago">Trago</td>
+                <td class="item-botella">Botella</td>
+            </tr>
+            <tr>
+                <td><img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=50&h=50&fit=crop" alt="Shot" class="item-img"></td>
+                <td class="item-name">G. Verde</td>
+                <td class="item-trago">Trago</td>
+                <td class="item-botella">Botella</td>
+            </tr>
+            <tr>
+                <td><img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=50&h=50&fit=crop" alt="Shot" class="item-img"></td>
+                <td class="item-name">José Cuervo Dorada</td>
+                <td class="item-trago">Trago</td>
+                <td class="item-botella">Botella</td>
+            </tr>
+            <tr>
+                <td><img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=50&h=50&fit=crop" alt="Shot" class="item-img"></td>
+                <td class="item-name">José Cuervo Silver</td>
+                <td class="item-trago">Trago</td>
+                <td class="item-botella">Botella</td>
+            </tr>
+            <tr>
+                <td><img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=50&h=50&fit=crop" alt="Shot" class="item-img"></td>
+                <td class="item-name">Licor de Menta</td>
+                <td class="item-trago">Trago</td>
+                <td class="item-botella">Botella</td>
+            </tr>
+            <tr>
+                <td><img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=50&h=50&fit=crop" alt="Shot" class="item-img"></td>
+                <td class="item-name">Mini Guinness</td>
+                <td class="item-trago">Trago</td>
+                <td class="item-botella">Botella</td>
+            </tr>
+            <tr>
+                <td><img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=50&h=50&fit=crop" alt="Shot" class="item-img"></td>
+                <td class="item-name">Negro Cremoso</td>
+                <td class="item-trago">Trago</td>
+                <td class="item-botella">Botella</td>
+            </tr>
+            </tr>
+            <td><img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=50&h=50&fit=crop" alt="Shot" class="item-img"></td>
+            <td class="item-name">Patrón Café</td>
+            <td class="item-trago">Trago</td>
+            <td class="item-botella">Botella</td>
+        </tr>
+        </tr>
+            <td><img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=50&h=50&fit=crop" alt="Shot" class="item-img"></td>
+            <td class="item-name">Patrón Silver</td>
+            <td class="item-trago">Trago</td>
+            <td class="item-botella">Botella</td>
+        </tr>
+        </tr>
+            <td><img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=50&h=50&fit=crop" alt="Shot" class="item-img"></td>
+            <td class="item-name">Sexo de Pitufo</td>
+            <td class="item-trago">Trago</td>
+            <td class="item-botella">Botella</td>
+        </tr>
+        </tr>
+            <td><img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=50&h=50&fit=crop" alt="Shot" class="item-img"></td>
+            <td class="item-name">Sambuca</td>
+            <td class="item-trago">Trago</td>
+            <td class="item-botella">Botella</td>
+        </tr>
+        </tr>
+            <td><img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=50&h=50&fit=crop" alt="Shot" class="item-img"></td>
+            <td class="item-name">"Smoke</td>
+            <td class="item-trago">"Trago</td>
+            <td class="item-botella">Botella</td>
+        </tr>
+        </tr>
+            <td><img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=50&h=50&fit=crop" alt="Shot" class="item-img"></td>
+            <td class="item-name">"Tequila Agavita</td>
+            <td class="item-trago">Trago</td>
+            <td class="item-botella">Botella</td>
+        </tr>
+        </tr>
+            <td><img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=50&h=50&fit=crop" alt="Shot" class="item-img"></td>
+            <td class="item-name">"Tu si ta Fuerte</td>
+            <td class="item-trago">"Trago</td>
+            <td class="item-botella">Botella</td>
+        </tr>
+    </table>
+    </div>
+    <div class="category">
+        <h2 onclick="toggleCategory(this)">Tequilas</h2>
+        <table>
+            <tr>
+                <td></td>
+                <td class="item-name">Don Julio Blanco</td>
+                <td class="item-trago">Trago 600 rd.</td>
+                <td class="item-botella">Botella 8000 rd.</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="item-name">Don Julio Reposado</td>
+                <td class="item-trago">Trago 700 rd.</td>
+                <td class="item-botella">Botella 9000 rd.</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="item-name">José Cuervo Dorada</td>
+                <td class="item-trago">Trago 300 rd.</td>
+                <td class="item-botella">Botella 4000 rd.</td>
+            </tr>
+            </tr>
+                <td></td>
+                <td class="item-name">José Cuervo Silver</td>
+                <td class="item-trago">Trago 300 rd.</td>
+                <td class="item-botella">Botella 4000 rd.</td>
+            </tr>
+            </tr>
+               <td></td>
+                <td class="item-name">Patrón Café</td>
+                <td class="item-trago">Trago 600 rd.</td>
+                <td class="item-botella">Botella 8000 rd.</td>
+            </tr>
+            </tr>
+                <td></td>
+                <td class="item-name">Patrón Silver</td>
+                <td class="item-trago">Trago 600 rd.</td>
+                <td class="item-botella">Botella 8000 rd. </td>
+            </tr>
+            </tr>
+                <td></td>
+                <td class="item-name">Tizca</td>
+                <td class="item-trago">Trago 250 rd.</td>
+                <td class="item-botella">Botella 3500 rd.</td>
+            </tr>
+        </table>
+    </div>
+    <div class="category">
+        <h2 onclick="toggleCategory(this)">Vinos</h2>
+        <table>
+            <tr>
+                <td><img src="https://images.unsplash.com/photo-1596073146981-97e334d9c9e2?w=50&h=50&fit=crop" alt="Vino" class="item-img"></td>
+                <td class="item-name">Copa Vino Blanco</td>
+                <td class="item-trago">Trago</td>
+                <td class="item-botella">Botella</td>
+            </tr>
+            <tr>
+                <td><img src="https://images.unsplash.com/photo-1596073146981-97e334d9c9e2?w=50&h=50&fit=crop" alt="Vino" class="item-img"></td>
+                <td class="item-name">Cune Crianza</td>
+                <td class="item-trago">Trago</td>
+                <td class="item-botella">Botella</td>
+            </tr>
+            <tr>
+                <td><img src="https://images.unsplash.com/photo-1596073146981-97e334d9c9e2?w=50&h=50&fit=crop" alt="Vino" class="item-img"></td>
+                <td class="item-name">Protos</td>
+                <td class="item-trago">Trago</td>
+                <td class="item-botella">Botella</td>
+            </tr>
+            <tr>
+                <td><img src="https://images.unsplash.com/photo-1596073146981-97e334d9c9e2?w=50&h=50&fit=crop" alt="Vino" class="item-img"></td>
+                <td class="item-name">Santa Carolina Blanco</td>
+                <td class="item-trago">Trago</td>
+                <td class="item-botella">Botella</td>
+            </tr>
+            <tr>
+                <td><img src="https://images.unsplash.com/photo-1596073146981-97e334d9c9e2?w=50&h=50&fit=crop" alt="Vino" class="item-img"></td>
+                <td class="item-name">Santa Carolina Tinto</td>
+                <td class="item-trago">Trago</td>
+                <td class="item-botella">Botella</td>
+            </tr>
+            <tr>
+                <td><img src="https://images.unsplash.com/photo-1596073146981-97e334d9c9e2?w=50&h=50&fit=crop" alt="Vino" class="item-img"></td>
+                <td class="item-name">Santa Rita</td>
+                <td class="item-trago">Trago</td>
+                <td class="item-botella">Botella</td>
+            </tr>
+            <tr>
+                <td><img src="https://images.unsplash.com/photo-1596073146981-97e334d9c9e2?w=50&h=50&fit=crop" alt="Vino" class="item-img"></td>
+                <td class="item-name">Vinos Pequeños</td>
+                <td class="item-trago">Trago</td>
+                <td class="item-botella">Botella</td>
+            </tr>
+        </table>
+    </div>
+    <div class="category">
+        <h2 onclick="toggleCategory(this)">Vodkas</h2>
+        <table>
+            <tr>
+                <td><img src="https://images.unsplash.com/photo-1596040033176-165a7fc380b0?w=50&h=50&fit=crop" alt="Vodka" class="item-img"></td>
+                <td class="item-name">Absolut </td>
+                <td class="item-trago">Trago 500 rd.</td>
+                <td class="item-botella">Botella 5000 rd.</td>
+            </tr>
+            <tr>
+                <td><img src="https://images.unsplash.com/photo-1596040033176-165a7fc380b0?w=50&h=50&fit=crop" alt="Vodka" class="item-img"></td>
+                <td class="item-name">Poliakoff </td>
+                <td class="item-trago">Trago 400 rd.</td>
+                <td class="item-botella">Botella 4000 rd.</td>
+            </tr>
+            <tr>
+                <td><img src="https://images.unsplash.com/photo-1596040033176-165a7fc380b0?w=50&h=50&fit=crop" alt="Vodka" class="item-img"></td>
+                <td class="item-name">Grey Goose </td>
+                <td class="item-trago">Trago 700 rd.</td>
+                <td class="item-botella">Botella 7000 rd.</td>
+            </tr>
+            </tr>
+                <td><img src="https://images.unsplash.com/photo-1596040033176-165a7fc380b0?w=50&h=50&fit=crop" alt="Vodka" class="item-img"></td>
+                <td class="item-name">Stolichnaya</td>
+                <td class="item-trago">Trago 400 rd.</td>
+                <td class="item-botella">Botella 4000 rd.</td>
+            </tr>
+            </tr>
+                <td><img src="https://images.unsplash.com/photo-1596040033176-165a7fc380b0?w=50&h=50&fit=crop" alt="Vodka" class="item-img"></td>
+                <td class="item-name">Tito's</td>
+                <td class="item-trago">Trago 500 rd.</td>
+                <td class="item-botella">Botella 5000 rd.</td>
+            </tr>
+        </table>
+    </div>
+    <div class="category">
+        <h2 onclick="toggleCategory(this)">Whiskys</h2>
+        <table>
+            <tr>
+                <td><img src="https://images.unsplash.com/photo-1596648858486-4e6b870af0c9?w=50&h=50&fit=crop" alt="Whisky" class="item-img"></td>
+                <td class="item-name">Black Label</td>
+                <td class="item-trago">Trago 700 rd.</td>
+                <td class="item-botella">Botella 7000 rd.</td>
+            </tr>
+            <tr>
+                <td><img src="https://images.unsplash.com/photo-1596648858486-4e6b870af0c9?w=50&h=50&fit=crop" alt="Whisky" class="item-img"></td>
+                <td class="item-name">Buchanan's 12</td>
+                <td class="item-trago">Trago 550 rd.</td>
+                <td class="item-botella">Botella 5500 rd.</td>
+            </tr>
+            <tr>
+                <td><img src="https://images.unsplash.com/photo-1596648858486-4e6b870af0c9?w=50&h=50&fit=crop" alt="Whisky" class="item-img"></td>
+                <td class="item-name">Buchanan's 18</td>
+                <td class="item-trago">Trago 800 rd.</td>
+                <td class="item-botella">Botella 8000 rd.</td>
+            </tr>
+            <tr>
+                <td><img src="https://images.unsplash.com/photo-1596648858486-4e6b870af0c9?w=50&h=50&fit=crop" alt="Whisky" class="item-img"></td>
+                <td class="item-name">Chivas 12</td>
+                <td class="item-trago">Trago 550 rd.</td>
+                <td class="item-botella">Botella 5500 rd.</td>
+            </tr>
+            <tr>
+                <td><img src="https://images.unsplash.com/photo-1596648858486-4e6b870af0c9?w=50&h=50&fit=crop" alt="Whisky" class="item-img"></td>
+                <td class="item-name">Chivas 18</td>
+                <td class="item-trago">Trago 800 rd.</td>
+                <td class="item-botella">Botella 8000 rd.</td>
+            </tr>
+            <tr>
+                <td><img src="https://images.unsplash.com/photo-1596648858486-4e6b870af0c9?w=50&h=50&fit=crop" alt="Whisky" class="item-img"></td>
+                <td class="item-name">Dewar's 8</td>
+                <td class="item-trago">Trago 400 rd.</td>
+                <td class="item-botella">Botella 4000 rd.</td>
+            </tr>
+            <tr>
+                <td><img src="https://images.unsplash.com/photo-1596648858486-4e6b870af0c9?w=50&h=50&fit=crop" alt="Whisky" class="item-img"></td>
+                <td class="item-name">Dewar's 12</td>
+                <td class="item-trago">Trago 500 rd.</td>
+                <td class="item-botella">Botella 5500 rd.</td>
+            </tr>
+            <tr>
+                <td><img src="https://images.unsplash.com/photo-1596648858486-4e6b870af0c9?w=50&h=50&fit=crop" alt="Whisky" class="item-img"></td>
+                <td class="item-name">Fireball</td>
+                <td class="item-trago">Trago 700 rd.</td>
+                <td class="item-botella">Botella 7000 rd.</td>
+            </tr>
+            <tr>
+                <td><img src="https://images.unsplash.com/photo-1596648858486-4e6b870af0c9?w=50&h=50&fit=crop" alt="Whisky" class="item-img"></td>
+                <td class="item-name">Glenlivet</td>
+                <td class="item-trago">Trago 700 rd.</td>
+                <td class="item-botella">Botella 7000 rd.</td>
+            </tr>
+            <tr>
+                <td><img src="https://images.unsplash.com/photo-1596648858486-4e6b870af0c9?w=50&h=50&fit=crop" alt="Whisky" class="item-img"></td>
+                <td class="item-name">Gold Label</td>
+                <td class="item-trago">Trago 800 rd.</td>
+                <td class="item-botella">Botella 8000 rd.</td>
+            </tr>
+            <tr>
+                <td><img src="https://images.unsplash.com/photo-1596648858486-4e6b870af0c9?w=50&h=50&fit=crop" alt="Whisky" class="item-img"></td>
+                <td class="item-name">Jack Daniel's</td>
+                <td class="item-trago">Trago 700 rd.</td>
+                <td class="item-botella">Botella 7000 rd.</td>
+            </tr>
+            </tr>
+                <td><img src="https://images.unsplash.com/photo-1596648858486-4e6b870af0c9?w=50&h=50&fit=crop" alt="Whisky" class="item-img"></td>
+                <td class="item-name">Jack Honey</td>
+                <td class="item-trago">Trago 700 rd.</td>
+                <td class="item-botella">Botella 7000 rd.</td>
+            </tr>
+            </tr>
+                <td><img src="https://images.unsplash.com/photo-1596648858486-4e6b870af0c9?w=50&h=50&fit=crop" alt="Whisky" class="item-img"></td>
+                <td class="item-name">J&B</td>
+                <td class="item-trago">Trago 400 rd.</td>
+                <td class="item-botella">Botella 4000 rd.</td>
+            </tr>
+            </tr>
+                <td><img src="https://images.unsplash.com/photo-1596648858486-4e6b870af0c9?w=50&h=50&fit=crop" alt="Whisky" class="item-img"></td>
+                <td class="item-name">Old Parr</td>
+                <td class="item-trago">Trago 550 rd.</td>
+                <td class="item-botella">Botella 5500 rd.</td>
+            </tr>
+            </tr>
+                <td><img src="https://images.unsplash.com/photo-1596648858486-4e6b870af0c9?w=50&h=50&fit=crop" alt="Whisky" class="item-img"></td>
+                <td class="item-name">Mc Arthur</td>
+                <td class="item-trago">Trago 550 rd.</td>
+                <td class="item-botella">Botella 5500 rd.</td>
+            </tr>
+            </tr>
+                <td><img src="https://images.unsplash.com/photo-1596648858486-4e6b870af0c9?w=50&h=50&fit=crop" alt="Whisky" class="item-img"></td>
+                <td class="item-name">Red Label</td>
+                <td class="item-trago">Trago 550 rd.</td>
+                <td class="item-botella">Botella 5500 rd.</td>
+            </tr>
+        </table>
+    </div>
+    <div class="category">
+        <h2 onclick="toggleCategory(this)">Bebidas Varias</h2>
+        <table>
+            <tr>
+                <td><img src="https://images.unsplash.com/photo-1605712289727-9878e91d30ae?w=50&h=50&fit=crop" alt="Bebida" class="item-img"></td>
+                <td class="item-name">Agua</td>
+                <td class="item-botella">Botella 75 rd.</td>
+                <td class="item-botella"></td>
+            </tr>
+            <tr>
+                <td><img src="https://images.unsplash.com/photo-1605712289727-9878e91d30ae?w=50&h=50&fit=crop" alt="Bebida" class="item-img"></td>
+                <td class="item-name">Clamato</td>
+                <td class="item-trago">Lata 250 rd.</td>
+                <td class="item-botella"></td>
+            </tr>
+            <tr>
+                <td><img src="https://images.unsplash.com/photo-1605712289727-9878e91d30ae?w=50&h=50&fit=crop" alt="Bebida" class="item-img"></td>
+                <td class="item-name">Coca-Cola</td>
+                <td class="item-trago">Botella 150 rd.</td>
+                <td class="item-botella"></td>
+            </tr>
+            <tr>
+                <td><img src="https://images.unsplash.com/photo-1605712289727-9878e91d30ae?w=50&h=50&fit=crop" alt="Bebida" class="item-img"></td>
+                <td class="item-name">Cranberry</td>
+                <td class="item-trago">Vaso 200 rd.</td>
+                <td class="item-botella"></td>
+            </tr>
+            <tr>
+                <td><img src="https://images.unsplash.com/photo-1605712289727-9878e91d30ae?w=50&h=50&fit=crop" alt="Bebida" class="item-img"></td>
+                <td class="item-name">Jugo de Naranja</td>
+                <td class="item-trago">Vaso 200 rd.</td>
+                <td class="item-botella"></td>
+            </tr>
+            <tr>
+                <td><img src="https://images.unsplash.com/photo-1605712289727-9878e91d30ae?w=50&h=50&fit=crop" alt="Bebida" class="item-img"></td>
+                <td class="item-name">Limonada</td>
+                <td class="item-trago">Vaso 200 rd.</td>
+                <td class="item-botella"></td>
+            </tr>
+            <tr>
+                <td><img src="https://images.unsplash.com/photo-1605712289727-9878e91d30ae?w=50&h=50&fit=crop" alt="Bebida" class="item-img"></td>
+                <td class="item-name">Perrier</td>
+                <td class="item-trago">Vaso 250 rd.</td>
+                <td class="item-botella"></td>
+            </tr>
+            <tr>
+                <td><img src="https://images.unsplash.com/photo-1605712289727-9878e91d30ae?w=50&h=50&fit=crop" alt="Bebida" class="item-img"></td>
+                <td class="item-name">Red Bull</td>
+                <td class="item-trago">Vaso 250 rd.</td>
+                <td class="item-botella"></td>
+            </tr>
+            <tr>
+                <td><img src="https://images.unsplash.com/photo-1605712289727-9878e91d30ae?w=50&h=50&fit=crop" alt="Bebida" class="item-img"></td>
+                <td class="item-name">San Pellegrino</td>
+                <td class="item-trago">Vaso 250 rd.</td>
+                <td class="item-botella"></td>
+            </tr>
+            <tr>
+                <td><img src="https://images.unsplash.com/photo-1605712289727-9878e91d30ae?w=50&h=50&fit=crop" alt="Bebida" class="item-img"></td>
+                <td class="item-name">Sangría</td>
+                <td class="item-trago">Vaso 300 rd.</td>
+                <td class="item-botella"></td>
+            </tr>
+            <tr>
+                <td><img src="https://images.unsplash.com/photo-1605712289727-9878e91d30ae?w=50&h=50&fit=crop" alt="Bebida" class="item-img"></td>
+                <td class="item-name">Seven Up</td>
+                <td class="item-trago">Vaso 150 rd.</td>
+                <td class="item-botella"></td>
+            </tr>
+            <tr>
+                <td><img src="https://images.unsplash.com/photo-1605712289727-9878e91d30ae?w=50&h=50&fit=crop" alt="Bebida" class="item-img"></td>
+                <td class="item-name">Soda</td>
+                <td class="item-trago">Vaso 150 rd.</td>
+                <td class="item-botella"></td>
+            </tr>
+            <tr>
+                <td><img src="https://images.unsplash.com/photo-1605712289727-9878e91d30ae?w=50&h=50&fit=crop" alt="Bebida" class="item-img"></td>
+                <td class="item-name">Tónica</td>
+                <td class="item-trago">Vaso 150 rd.</td>
+                <td class="item-botella"></td>
+            </tr>
+        </table>
+    </div>
+    <script>
+        function toggleCategory(element) {
+            const category = element.parentElement;
+            category.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
