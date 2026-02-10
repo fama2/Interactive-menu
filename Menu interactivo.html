@@ -286,6 +286,24 @@
             margin-bottom: 10px;
         }
 
+        .badge-nuevo {
+            display: inline-block;
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: #fff;
+            font-size: 0.6rem;
+            font-weight: 600;
+            padding: 3px 8px;
+            border-radius: 20px;
+            letter-spacing: 0.08em;
+            margin-bottom: 10px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.4); }
+            50% { box-shadow: 0 0 10px 3px rgba(231, 76, 60, 0.2); }
+        }
+
         .hidden {
             display: none !important;
         }
@@ -1133,7 +1151,7 @@
 
         <!-- Tapas -->
         <section class="category-section" data-section="tapas">
-            <h2 class="category-title"><span class="category-icon">🥜</span> Tapas</h2>
+            <h2 class="category-title"><span class="category-icon">🍽️</span> Tapas & Snacks</h2>
             <div class="menu-grid">
                 <div class="menu-item" data-name="aceitunas">
                     <div class="item-header">
@@ -1148,6 +1166,38 @@
                         <span class="item-price price-updated">RD$ 200</span>
                     </div>
                     <p class="item-description">Maní tostado y salado</p>
+                </div>
+                <div class="menu-item" data-name="bratwurst">
+                    <span class="badge-nuevo">NUEVO</span>
+                    <div class="item-header">
+                        <span class="item-name">Bratwurst</span>
+                        <span class="item-price price-updated">RD$ 450</span>
+                    </div>
+                    <p class="item-description">Salchichas frescas 100% de cerdo, sal, especias, cítricos y cerveza. 2 salchichas con rodajas de pan tostado y salsas de la casa</p>
+                </div>
+                <div class="menu-item" data-name="italiana picante">
+                    <span class="badge-nuevo">NUEVO</span>
+                    <div class="item-header">
+                        <span class="item-name">Italiana Picante</span>
+                        <span class="item-price price-updated">RD$ 500</span>
+                    </div>
+                    <p class="item-description">Salchichas italianas picantes 100% de cerdo, sal, especias, vino, pimentón y cayena. 2 salchichas con rodajas de pan tostado y salsas de la casa</p>
+                </div>
+                <div class="menu-item" data-name="sliders">
+                    <span class="badge-nuevo">NUEVO</span>
+                    <div class="item-header">
+                        <span class="item-name">Sliders</span>
+                        <span class="item-price price-updated">RD$ 400</span>
+                    </div>
+                    <p class="item-description">Dos miniburgers de res o pollo con salsa de chicharrón y pita chips</p>
+                </div>
+                <div class="menu-item" data-name="bandeja embutidos">
+                    <span class="badge-nuevo">NUEVO</span>
+                    <div class="item-header">
+                        <span class="item-name">Bandeja de Embutidos</span>
+                        <span class="item-price price-updated">RD$ 700</span>
+                    </div>
+                    <p class="item-description">Selección de embutidos artesanales con pita chips y salsas de la casa</p>
                 </div>
             </div>
         </section>
